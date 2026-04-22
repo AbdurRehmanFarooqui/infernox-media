@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Red_Hat_Display, Montserrat } from "next/font/google";
 import "./globals.css";
+import localFont from 'next/font/local'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -10,6 +11,24 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const redHatDisplay = Red_Hat_Display({
+  variable: "--font-red-hat-display",
+  subsets: ["latin"],
+});
+
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+});
+const conthrax = localFont({
+  src: "../public/fonts/Conthrax-SemiBold.otf",
+  variable: "--font-conthrax",
+});
+const conthraxBook = localFont({
+  src: "../public/fonts/conthrax-book.otf",
+  variable: "--font-conthrax-book",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +44,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${redHatDisplay.variable} ${montserrat.variable} ${conthrax.variable} ${conthraxBook.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
