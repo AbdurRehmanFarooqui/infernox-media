@@ -1,8 +1,8 @@
 import Logo from '@/app/components/Logo'
 export default function Header() {
     return (
-        <div className="fixed top-0 pt-12 w-full z-100 ">
-            <header className="max-w-7xl mx-auto flex items-center justify-between py-5 px-15 bg-white/1 text-white backdrop-blur-sm rounded-3xl shadow-lg w-full inset-shadow-md inset-shadow-white/10 ">
+        <div className="fixed top-0 pt-8 md:pt-12 w-full z-100 px-8">
+            <header className="max-w-7xl mx-auto flex items-center justify-between py-3 md:py-5  px-8 md:px-15 bg-white/1 text-white backdrop-blur-sm rounded-3xl shadow-lg w-full inset-shadow-md inset-shadow-white/10 ">
 
                 {/* ============================================================== */}
                 {/* GLASS ARCHITECTURE (Z-0) */}
@@ -16,11 +16,11 @@ export default function Header() {
 
                 {/* Navigation */}
                 <nav className="flex items-center justify-between w-full">
-                    <div className='h-15 w-48'>
+                    <div className='h-15 w-32 sm:gap-x-4 md:w-38 lg:w-48'>
                         <Logo />
                     </div>
 
-                    <ul className="flex space-x-16 font-red-hat text-lg z-20">
+                    <ul className="hidden md:flex sm:gap-x-4 md:gap-x-8 lg:space-x-16 font-red-hat text-lg z-20">
 
                         <li><a href="/" className="hover:text-white/80">Home</a></li>
 
@@ -35,6 +35,14 @@ export default function Header() {
                     </ul>
 
                 </nav>
+                <div className='md:hidden w-4 h-4'>
+                    {/* Mobile menu icon (hamburger) */}
+                    <div className="space-y-1">
+                        <span className="block w-6 h-0.5 bg-white"></span>
+                        <span className="block w-6 h-0.5 bg-white"></span>
+                        <span className="block w-6 h-0.5 bg-white"></span>
+                    </div>
+                </div>
             </header>
         </div>
     );

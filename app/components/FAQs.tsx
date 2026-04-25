@@ -1,7 +1,8 @@
 'use client'
 import { useState } from "react";
-import ArcGradient from "./ArcGradient2";
+import ArcGradient from "./ArcGradient";
 import CircleGradient from "./CircleGradient";
+// import ArcGradient2 from "./ArcGradient2";
 
 export default function FAQs() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
