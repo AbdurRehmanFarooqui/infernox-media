@@ -30,6 +30,10 @@ const conthraxBook = localFont({
   src: "../public/fonts/conthrax-book.otf",
   variable: "--font-conthrax-book",
 });
+const conthraxLight = localFont({
+  src: "../public/fonts/conthrax-light.otf",
+  variable: "--font-conthrax-light",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -44,7 +48,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${redHatDisplay.variable} ${montserrat.variable} ${conthrax.variable} ${conthraxBook.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${redHatDisplay.variable} ${montserrat.variable} ${conthrax.variable} ${conthraxBook.variable} ${conthraxLight.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

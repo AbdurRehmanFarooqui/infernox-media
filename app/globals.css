@@ -28,14 +28,23 @@ body {
 @layer utilities {
   .font-red-hat {
     font-family: var(--font-red-hat-display);
-  }
+  };
   .font-montserrat {
     font-family: var(--font-montserrat);
-  }
+  };
   .font-conthrax {
     font-family: var(--font-conthrax);
-  }
+  };
   .font-conthrax-book {
     font-family: var(--font-conthrax-book);
-  }
+  };
+  .font-conthrax-book {
+    font-family: var(--font-conthrax-book);
+  };
+  .font-conthrax-light {
+    font-family: var(--font-conthrax-light);
+  };
+}
+@theme {
+  --inset-shadow-md: inset 0px 1px 20px  rgba(0, 0, 0, 0.4); 
 }

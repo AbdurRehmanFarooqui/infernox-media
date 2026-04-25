@@ -45,19 +45,19 @@ export default function WhoWeHelpDetail() {
         
         {/* Section Header */}
         <div className="text-center mb-24">
-          <h2 className="text-4xl md:text-[40px] font-bold tracking-wide mb-3 font-tech">
+          <h2 className="text-4xl md:text-[40px] font-bold tracking-wide mb-3 font-conthrax">
             Who We Help
           </h2>
-          <p className="text-[#888888] text-sm md:text-base font-medium tracking-wide">
+          <p className="text-[#888888] text-sm md:text-base font-medium tracking-wide font-montserrat">
             A strong online presence isn't optional anymore
           </p>
         </div>
 
         {/* --- Main Two-Column Layout --- */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-18">
           
           {/* Left Column: Interactive Tabs */}
-          <div className="lg:col-span-5 flex flex-col justify-start">
+          <div className="lg:col-span-6 flex flex-col justify-start">
             {tabs.map((tab, index) => {
               const isActive = activeTab === index;
               return (
@@ -69,7 +69,7 @@ export default function WhoWeHelpDetail() {
                   }`}
                 >
                   {/* Number */}
-                  <span className={`text-4xl md:text-[50px] font-tech transition-colors duration-300 ${
+                  <span className={`text-3xl md:text-5xl font-conthrax transition-colors duration-300 ${
                     isActive 
                       ? "text-white" 
                       : "text-transparent [-webkit-text-stroke:1px_#555555]"
@@ -78,7 +78,7 @@ export default function WhoWeHelpDetail() {
                   </span>
                   
                   {/* Name */}
-                  <span className={`text-4xl md:text-[50px] font-tech transition-colors duration-300 ${
+                  <span className={`text-3xl md:text-4xl font-conthrax transition-colors duration-300 ${
                     isActive 
                       ? "text-white" 
                       : "text-transparent [-webkit-text-stroke:1px_#555555]"
@@ -91,25 +91,25 @@ export default function WhoWeHelpDetail() {
           </div>
 
           {/* Right Column: Dynamic Content */}
-          <div className="lg:col-span-7 flex flex-col justify-start pt-6">
-            <p className="text-[#A0A0A0] text-sm leading-[1.8] mb-10 max-w-2xl">
+          <div className="lg:col-span-6 flex flex-col justify-start pt-6">
+            <p className="text-[#A0A0A0] text-sm leading-[1.8] mb-10 max-w-2xl font-montserrat">
               We edit your YouTube videos to reflect your brand's personality that will help
               generate views and grow your YouTube channel
             </p>
 
-            <h3 className="text-xl text-white font-tech tracking-wider mb-4">
+            <h3 className="text-xl text-white font-tech tracking-wider mb-4 font-conthrax">
               Your Complete YouTube Content System
             </h3>
             
-            <p className="text-[#888888] text-[13px] leading-[1.8] mb-10 max-w-3xl">
+            <p className="text-[#888888] text-[13px] leading-[1.8] mb-10 max-w-3xl font-montserrat">
               Grow your channel with strategic, retention-focused editing that keeps viewers watching from the first second to the last. We don't just edit, we engineer your videos for performance. From pacing and storytelling to hooks, viewer psychology, and thumbnail optimization, every detail is crafted to increase watch time, boost engagement, and help you scale consistently.
             </p>
 
-            <h3 className="text-xl text-white font-tech tracking-wider mb-5">
+            <h3 className="text-xl text-white font-conthrax tracking-wider mb-5 ">
               What You Get
             </h3>
 
-            <ul className="space-y-2 text-[#888888] text-[13px]">
+            <ul className="space-y-2 text-[#888888] text-[13px] font-montserrat">
               <li className="flex items-start gap-2">
                 <span className="mt-[6px] w-1 h-1 bg-[#888888] rounded-full shrink-0" />
                 Content ideas and strategic guidance tailored to your niche

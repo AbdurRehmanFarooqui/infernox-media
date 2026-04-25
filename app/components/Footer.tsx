@@ -16,27 +16,29 @@ export default function Footer() {
     };
 
     return (
-        <footer className="w-full bg-[#030303] text-white pt-16 pb-8 font-sans border-t border-white/10">
-            <div className="max-w-7xl mx-auto px-6">
+        <footer className="w-full bg-[#030303] text-white pt-16 pb-8 px-16 font-sans  ">
+            <div className="max-w-7xl mx-auto pt-32 border-t border-white/10">
 
                 {/* --- Top Row: Logo, Mission, Newsletter --- */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center mb-16">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center mb-14 ">
 
                     {/* Logo Column */}
-                    <div className="lg:col-span-3 flex items-center">
+                    <div className="lg:col-span-3 flex items-start h-15">
+                        <div className="h-full w-56">
                         <Logo/>
+                        </div>
                     </div>
 
                     {/* Mission Text Column */}
                     <div className="lg:col-span-5">
-                        <p className="text-white text-[15px] leading-relaxed max-w-md lg:mx-auto font-medium">
+                        <p className="text-white text-[15px] leading-relaxed max-w-md lg:mx-auto font-regular font-montserrat">
                             We help you rise above the noise with strategic edits that engage audiences, convert attention, and scale your brand's impact.
                         </p>
                     </div>
 
                     {/* Newsletter Column */}
                     <div className="lg:col-span-4 w-full max-w-md lg:ml-auto">
-                        <h3 className="font-tech text-lg mb-4 tracking-wide">
+                        <h3 className="font-conthrax-book text-lg mb-4 tracking-wide">
                             Subscribe to Our Newsletter
                         </h3>
                         <form
@@ -63,18 +65,18 @@ export default function Footer() {
                 </div>
 
                 {/* --- Middle Divider --- */}
-                <hr className="border-white/10 w-full mb-10" />
+                <hr className="border-white/90 w-full mb-10" />
 
                 {/* --- Navigation & Socials Row --- */}
                 <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-10">
 
                     {/* Nav Links */}
-                    <nav className="flex flex-wrap justify-center md:justify-start gap-6 md:gap-10">
+                    <nav className="flex flex-wrap justify-center md:justify-start gap-6 md:gap-12">
                         {["Home", "About Us", "Services", "Portfolio", "Pricing", "Faqs"].map((link) => (
                             <Link
                                 key={link}
                                 href={`/${link.toLowerCase().replace(" ", "-")}`}
-                                className="text-[15px] font-semibold hover:text-[#7B00FF] transition-colors duration-300"
+                                className="text-[15px] font-medium hover:text-[#7B00FF] transition-colors duration-300 font-montserrat"
                             >
                                 {link}
                             </Link>
@@ -104,13 +106,13 @@ export default function Footer() {
                 </div>
 
                 {/* --- Bottom Row: Copyright & Policies --- */}
-                <div className="flex flex-col md:flex-row items-center w-full mt-4">
+                <div className="flex flex-col md:flex-row items-center w-full mt-4 font-montserrat">
                     <p className="text-[13px] text-[#A0A0A0] whitespace-nowrap mb-4 md:mb-0">
                         Copyright 2025 All Rights Reserved.
                     </p>
 
                     {/* Expanding Line exactly like the design */}
-                    <div className="flex-1 h-[1px] bg-white/20 mx-8 hidden md:block"></div>
+                    <div className="flex-1 h-[1px] bg-white/90 mx-8 hidden md:block "></div>
 
                     <div className="flex gap-6 text-[13px] text-[#A0A0A0]">
                         <Link href="/privacy-policy" className="hover:text-white transition-colors duration-300">

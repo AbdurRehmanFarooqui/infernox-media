@@ -1,6 +1,6 @@
 export default function Logo() {
     return (
-        <div className="relative h-14 w-44">
+        <div className="relative h-full w-full">
             <svg width="222" height="64" viewBox="0 0 222 64" fill="none" xmlns="http://www.w3.org/2000/svg"  className="absolute inset-0 size-full object-cover">
                 <g clipPath="url(#clip0_332_2820)">
                     <path d="M0 36.343L18.1011 46.0742C18.7817 46.4406 19.5287 46.6711 20.2996 46.7526C21.0705 46.834 21.8501 46.7648 22.5939 46.549C23.3376 46.3331 24.031 45.9748 24.6344 45.4945C25.2377 45.0142 25.7392 44.4213 26.1102 43.7498L27.9781 40.3707L0 25.3237V36.343Z" fill="white" />

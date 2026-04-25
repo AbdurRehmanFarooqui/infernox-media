@@ -2,7 +2,7 @@ import Logo from '@/app/components/Logo'
 export default function Header() {
     return (
         <div className="fixed top-0 pt-12 w-full z-100 ">
-            <header className="max-w-7xl mx-auto flex items-center justify-between py-7 px-15 bg-white/1 text-white backdrop-blur-xs rounded-3xl shadow-lg w-full">
+            <header className="max-w-7xl mx-auto flex items-center justify-between py-5 px-15 bg-white/1 text-white backdrop-blur-sm rounded-3xl shadow-lg w-full inset-shadow-md inset-shadow-white/10 ">
 
                 {/* ============================================================== */}
                 {/* GLASS ARCHITECTURE (Z-0) */}
@@ -11,13 +11,14 @@ export default function Header() {
                     {/* Base Structure */}
                     <div className="absolute inset-0 bg-gradient-to-br from-white/[0.1] via-white/[0.02] to-black/20 backdrop-blur-2xl border-[1.5px] border-t-white/10 border-l-white/70 border-r-white/10 border-b-white/30 rounded-2xl md:rounded-3xl shadow-[inset_0_0_30px_rgba(255,255,255,0.05)]"></div>
                     {/* Noise Texture */}
-                    <div className="absolute inset-0 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none mix-blend-overlay" />
+                    <div className="absolute inset-0 opacity-[0.05] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none mix-blend-overlay" />
                 </div>
 
                 {/* Navigation */}
                 <nav className="flex items-center justify-between w-full">
-
-                    <Logo />
+                    <div className='h-15 w-48'>
+                        <Logo />
+                    </div>
 
                     <ul className="flex space-x-16 font-red-hat text-lg z-20">
 
