@@ -11,7 +11,7 @@ export default function LogoMarquee() {
   ];
 
   return (
-    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full flex justify-center items-center gap-x-4 md:gap-x-6 h-12 z-50 w-full px-8">
+    <div className="absolute top-8 left-1/2 -translate-x-1/2 w-full max-w-[900px] flex justify-center items-center gap-x-4 md:gap-x-6 h-12 z-50 w-full px-8">
       {logoGroups.map((group, groupIndex) => (
         <div key={groupIndex} className="flex gap-x-2">
           {group.map((logo, logoIndex) => (

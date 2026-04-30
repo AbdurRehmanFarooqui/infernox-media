@@ -2,7 +2,6 @@ import Header from "@/app/components/Header";
 import Image from "next/image";
 import CircleGradient from "./components/CircleGradient";
 import ArcGradient from "./components/ArcGradient";
-// import ArcGradient2 from "./components/ArcGradient2";
 import ButtonPrimary from "./components/ButtonPrimary";
 import ButtonSecondary from "./components/ButtonSecondary";
 import Avatar from "./components/Avatar";

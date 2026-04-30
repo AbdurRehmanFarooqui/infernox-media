@@ -1,71 +1,120 @@
-export default function Testimonials(){
-    return(
-        <section className="py-24 overflow-hidden relative">
-          <h2 className="text-center text-3xl font-conthrax-book mb-16 tracking-widest uppercase">
-            Testimonial
-          </h2>
+"use client";
 
-          <div className="max-w-7xl mx-auto px-6 relative">
-            <div className="flex gap-6 items-stretch">
+import React, { useState } from "react";
 
-              {/* Active Main Card */}
-              <div className="border border-white/10 flex flex-col md:flex-row w-full md:w-[85%] shrink-0 shadow-2xl relative z-10 overflow-hidden">
-                <img
-                  src="/api/placeholder/350/400"
-                  alt="Client"
-                  className="w-full md:w-[35%] object-cover object-center grayscale opacity-80"
-                />
-                <div className="p-8 md:p-12 flex-1 flex flex-col justify-center relative">
-                  {/* Slider Arrows */}
-                  <div className="absolute top-8 right-8 flex gap-3">
-                    <button className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
-                    </button>
-                    <button className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-                    </button>
+export default function Testimonials() {
+  // 1. State to track which testimonial is currently active
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const testimonials = [
+    {
+      name: "CURI HAXHA",
+      title: "Founder @ CH Investments",
+      quote: "Working with Infernox completely transformed our production value and overall workflow.",
+      rating: 5,
+      image: "/testimonial-1.png",
+    },
+    {
+      name: "JANE DOE",
+      title: "CEO @ Tech Solutions",
+      quote: "Infernox's expertise in 3D animation elevated our brand presence and captivated our audience.",
+      rating: 5,
+      image: "/testimonial-2.png",
+    },
+    {
+      name: "JOHN DOE",
+      title: "CEO @ Tech Solutions",
+      quote: "Infernox's expertise in 3D animation elevated our brand presence and captivated our audience.",
+      rating: 5,
+      image: "/testimonial-1.png",
+    },
+  ];
+
+  // 2. Navigation Handlers
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  return (
+    <section className="py-24 overflow-hidden relative">
+      <h2 className="text-center text-3xl font-conthrax mb-16 uppercase">
+        Testimonial
+      </h2>
+      
+      {/* Attached onClick handlers to your buttons */}
+      <div className="z-50 absolute top-60 right-50 flex gap-3">
+        <button onClick={handlePrev} className="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center hover:bg-white/10 hover:border-[#7B00FF] transition-colors cursor-pointer group">
+          <svg width="20" height="20" className="group-hover:-translate-x-2 duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
+        </button>
+        <button onClick={handleNext} className="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center hover:bg-white/10 hover:border-[#7B00FF] transition-colors cursor-pointer group">
+          <svg width="20" height="20" className="group-hover:translate-x-2 duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
+        </button>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 relative">
+
+        <h3 className="absolute text-xl md:text-3xl font-conthrax-book font-bold leading-snug mb-6 uppercase max-w-100 mt-8 md:mt-8 left-1/2 -translate-x-1/2">
+          WHAT CLIENTS SAYS ABOUT <span className="text-[#7B00FF]">INFERNOX</span>
+        </h3>
+
+        <div className="flex gap-6 items-stretch">
+          {
+            testimonials.map((testimonial, index) => {
+              // Check if the current card is the active one
+              const isActive = index === activeIndex;
+
+              return (
+                <div 
+                  key={index}
+                  // Added dynamic classes: darkens, lowers opacity, and disables pointer events if inactive
+                  className={`flex flex-col md:flex-row w-full md:w-[85%] shrink-0 shadow-2xl relative z-10 overflow-hidden group transition-all duration-500 ease-in-out ${
+                    isActive 
+                      ? "opacity-100 brightness-100" 
+                      : "opacity-40 brightness-50 saturate-50 pointer-events-none"
+                  }`}
+                  // This inline style dynamically slides the cards left and right based on the active index and the 1.5rem (gap-6) spacing
+                  style={{
+                    transform: `translateX(calc(-${activeIndex * 100}% - ${activeIndex * 1.5}rem))`
+                  }}
+                >
+                  {/* --- Your inner card design remains exactly untouched below --- */}
+                  <div className="absolute bg-zinc-600 h-100 w-[33%] top-[40%] group-hover:w-full duration-400" />
+                  <div className="w-full md:w-[30%] overflow-hidden">
+                    <img
+                      src={testimonial.image}
+                      alt="Client"
+                      className="w-full object-cover object-center saturate-100 opacity-100 group-hover:scale-110 duration-400"
+                    />
                   </div>
+                  <div className="absolute h-100 w-[30%] top-[100%] bg-linear-to-t from-[#7B00FF] to-transparent group-hover:top-[40%] duration-400 opacity-60" />
+                  <div className="p-8 md:p-12 flex-1 flex flex-col justify-end relative">
+                    <div className="mb-6 group-hover:pl-6 duration-400">
+                      <h4 className="text-lg font-conthrax-book tracking-wide">{testimonial.name}</h4>
+                      <p className="text-white text-xs mt-1 font-conthrax-light">{testimonial.title}</p>
+                    </div>
 
-                  <h3 className="text-xl md:text-[26px] font-conthrax-book font-bold leading-snug mb-6 uppercase max-w-sm mt-8 md:mt-0 ">
-                    WHAT CLIENTS SAYS ABOUT <span className="text-[#7B00FF]">INFERNOX</span>
-                  </h3>
+                    <p className="text-white text-sm leading-relaxed mb-6 italic font-montserrat">
+                      "{testimonial.quote}"
+                    </p>
 
-                  <div className="mb-6">
-                    <h4 className="text-lg font-conthrax-book tracking-wide">CURI HAXHA</h4>
-                    <p className="text-white text-xs mt-1 font-conthrax-light">Founder @ CH Investments</p>
-                  </div>
-
-                  <p className="text-[#A0A0A0] text-sm leading-relaxed mb-6 italic font-montserrat">
-                    "Working with Infernox completely transformed our production value and overall workflow."
-                  </p>
-
-                  {/* 5 Stars */}
-                  <div className="flex gap-1 text-[#FFB800]">
-                    {[...Array(5)].map((_, i) => (
-                      <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                      </svg>
-                    ))}
+                    <div className="flex gap-1 group-hover:gap-2 group-hover:pl-2 duration-400 text-[#FFB800]">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <svg key={i} className="w-4 h-4 fill-current group-hover:scale-120 duration-400" viewBox="0 0 24 24">
+                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              {/* Next Card Preview (Faded) */}
-              <div className="bg-[#0A0A0A] border border-white/5 rounded-2xl flex flex-col md:flex-row w-[85%] shrink-0 opacity-40 scale-95 origin-left relative -z-10 pointer-events-none hidden md:flex">
-                <img
-                  src="/api/placeholder/350/400"
-                  alt="Client"
-                  className="w-[35%] object-cover grayscale"
-                />
-                <div className="p-12 flex-1 flex flex-col justify-center">
-                  <h3 className="text-[26px] font-tech font-bold leading-snug mb-6 uppercase max-w-sm">
-                    WHAT CLIENTS SAYS ABOUT <span className="text-[#7B00FF]">INFERNOX</span>
-                  </h3>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </section>
-    )
+              )
+            })
+          }
+        </div>
+      </div>
+    </section>
+  )
 }

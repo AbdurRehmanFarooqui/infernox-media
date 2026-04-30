@@ -4,7 +4,7 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import Image from "next/image";
 // Register ScrollTrigger safely for Next.js SSR
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -17,6 +17,7 @@ export default function WhoWeHelp() {
   const contentRef = useRef<HTMLDivElement>(null);
   const mediaRef = useRef<HTMLDivElement>(null);
   const infernoxRef = useRef<HTMLDivElement>(null);
+  const logoRef = useRef<HTMLImageElement>(null);
 
   const targetAudiences = [
     {
@@ -83,8 +84,8 @@ export default function WhoWeHelp() {
       // Step B: Pull "MEDIA" and "INFERNOX" into the EXACT center
       .to(mediaRef.current, {
         top: "50%",
-        right: "25%",  // FIX: 50% forces absolute horizontal center
-        xPercent: 50,  // Offsets it by half its width
+        left: "50%",  // FIX: 50% forces absolute horizontal center
+        // xPercent: 50,  // Offsets it by half its width
         yPercent: -50, // Offsets it by half its height
         opacity: 0.50, // Brighten slightly
         duration: 4,
@@ -92,8 +93,8 @@ export default function WhoWeHelp() {
       }, "center")
       .to(infernoxRef.current, {
         bottom: "50%",
-        left: "33%",   // FIX: 50% forces absolute horizontal center
-        xPercent: -50,
+        left: "2%",   // FIX: 50% forces absolute horizontal center
+        // xPercent:,
         yPercent: 50,
         opacity: 0.50,
         duration: 4,
@@ -114,13 +115,22 @@ export default function WhoWeHelp() {
         opacity: 0,
         duration: 3,
         ease: "power2.inOut"
-      }, "split");
+      }, "split")
+
+      .to(logoRef.current, {
+        y: -500,
+        opacity: 100,
+        scale: 200,
+        duration: 4,
+        ease: "power2.inOut"
+      }, "split+=0.5");
 
   }, { scope: containerRef }); 
 
   return (
     <section ref={containerRef} className="relative w-full h-screen bg-[#030303] flex items-center justify-center overflow-hidden">
 
+      <Image ref={logoRef} src={'/logo-mark.png'} width={100} height={200} alt="logo" className="absolute opacity-0"/>
       {/* --- Ambient Background Gradients --- */}
       {/* FIX: Added ref={glowsRef} right here! */}
       <div className="absolute inset-0 w-full h-full pointer-events-none">
